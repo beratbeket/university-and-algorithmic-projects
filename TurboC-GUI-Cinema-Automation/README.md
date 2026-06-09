@@ -29,10 +29,14 @@ Sistem iki ana modül üzerinden çalışmaktadır:
 2. **Kullanıcı Girişi (User Panel):** Kullanıcıların interaktif menülerde dolaşabildiği, filmlere bilet alabildiği, dolu koltukların kırmızı ile işaretlendiği (`SOLID_FILL, RED`) ve sanal büfeden mısır/kola satın alabildiği ana modül.
 
 ---
+<table>
+  <tr>
+    <td><img src="images/IMG_6544.jpg" width="100%"></td>
+    <td><img src="images/IMG_6545.jpg" width="100%"></td>
+      <td><img src="images/IMG_6548.jpg" width="100%"></td>
+  </tr>
+</table>
 
-![Alternatif Metin](images/IMG_6544.jpg)
-![Alternatif Metin](images/IMG_6545.jpg)
-![Alternatif Metin](images/IMG_6548.jpg)
 
 ## ⚙️ Kurulum ve Çalıştırma (Modern Sistemler İçin)
 
