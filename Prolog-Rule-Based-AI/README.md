@@ -4,30 +4,28 @@ This repository contains two different rule-based expert systems developed in Pr
 
 ---
 
-## 🦈 Project 1: Predator Logic Simulator (Shark Behavior Model)
+## 🦈 Proje 1: Köpekbalığı Saldırı Tahmini
 
 Bir köpekbalığının karşılaştığı deniz canlısına göre nasıl davranacağı Prolog ile modellenmiştir. Sistem, kullanıcıdan karşılaşılan canlıyı almalı ve gerekiyorsa ek sorular sorarak karar vermelidir.
 
-### 📋 Rules (Kurallar)
+### 📋 Kurallar
 
-- **Küçük Balıklar (Lüfer, Levrek, Hamsi):** Köpekbalığı lüfer gibi küçük balıklarla karşılaşırsa sonuç `saldiri` olmalıdır.
-- **Yunus (Dolphin):** Yunus ile karşılaşırsa önce yunusun boyutu değerlendirilmelidir. Yunus köpekbalığından küçükse sonuç `saldiri`, değilse `saldirmaz` olmalıdır.
-- **Orca:** Orca ile karşılaşırsa sonuç her zaman `kacis` olmalıdır.
-- **Balina (Whale):** Balina ile karşılaşırsa sistem önce _‘balina yavrusu mu?’_ diye sormalıdır. Cevap hayır ise sonuç `saldirmaz` olmalıdır. Eğer cevap evet ise sistem bu kez _‘kaç köpekbalığı var?’_ diye sormalıdır. Köpekbalığı sayısı birden fazlaysa sonuç `saldirir`, değilse `saldirmaz` olmalıdır.
+- **Küçük Balıklar (Lüfer, Levrek, Hamsi):** Köpekbalığı lüfer gibi küçük balıklarla karşılaşırsa sonuç `saldirir` olmalıdır.
+- **Yunus:** Yunus ile karşılaşırsa önce yunusun boyutu değerlendirilmelidir. Yunus köpekbalığından küçükse sonuç `saldirir`, değilse `saldirmaz` olmalıdır.
+- **Orca:** Orca ile karşılaşırsa sonuç her zaman `kacar` olmalıdır.
+- **Balina:** Balina ile karşılaşırsa sistem önce _‘balina yavrusu var mı?’_ diye sormalıdır. Cevap hayır ise sonuç `saldirmaz` olmalıdır. Eğer cevap evet ise sistem bu kez _‘kaç köpekbalığı var?’_ diye sormalıdır. Köpekbalığı sayısı birden fazlaysa sonuç `saldirir`, değilse `saldirmaz` olmalıdır.
 
-### 📊 Decision Tree Diagram / Screenshot
+### 📊 Output
 
-Below is the execution flow or the decision tree diagram for the Shark Behavior Model:
-
-![Shark Behavior Logic Screenshot](./Prolog-Rule-Based-AI/predator.png)
+![Shark Behavior Logic Screenshot](predator.png)
 
 ---
 
-## 🎓 Project 2: Student Performance Analyzer (Academic Grading System)
+## 🎓 Proje 2: Öğrenci Geçti-Kaldı Analizi
 
 Bir öğrencinin dersten geçip geçmediğini belirleyen Prolog sistemi geliştirilecektir. Sistem kullanıcıdan öğrenci adı, ders adı, vize notu, final notu ve devamsızlık durumunu almalıdır.
 
-### 📋 Rules (Kurallar)
+### 📋 Kurallar
 
 - **Başarı Notu Hesaplama:** Genel başarı notu vizenin %40’ı ve finalin %60’ı alınarak hesaplanmalıdır.
 - **Final Barajı:** Final notu 50’nin altındaysa öğrenci `finaldenkaldi` sonucunu almalıdır.
@@ -35,8 +33,7 @@ Bir öğrencinin dersten geçip geçmediğini belirleyen Prolog sistemi gelişti
 - **Devamsızlık Durumu:** Devamsızlık sınırı aşılmışsa notlara bakılmadan sonuç `devamsizliktankaldi` olmalıdır.
 - **Geçme Durumu:** Tüm şartlar sağlanıyorsa sonuç `gecti` olmalıdır.
 
-### 📊 System Output / Screenshot
+### 📊 Output 
 
-Below is the terminal output or the execution flow screenshot for the Student Grading System:
 
-![Student Performance Logic Screenshot](./Prolog-Rule-Based-AI/pass_fail.png)
+![Student Performance Logic Screenshot](pass_fail.png)
