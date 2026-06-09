@@ -1,0 +1,95 @@
+
+@model Bloggy.Models.Blog
+
+@{
+    ViewData["Title"] = "Blog Düzenle";
+}
+
+<div class="content">
+    <div class="content_resize">
+        <div class="mainbar" style="width: 100%; float: none; max-width: 800px; margin: 40px auto;">
+            <div class="article">
+                <h2 style="text-align: center; color: #D2691E; margin-bottom: 30px;">
+                    <span style="font-size: 40px;">✏️</span><br />
+                    Blog Düzenle
+                </h2>
+                
+                <form asp-action="Edit" method="post" style="padding: 20px;">
+                    <input type="hidden" asp-for="Id" />
+                    
+                    <div style="margin-bottom: 25px;">
+                        <label asp-for="Name" style="display: block; margin-bottom: 8px; color: #555; font-weight: bold;">
+                            📝 Başlık
+                        </label>
+                        <input asp-for="Name" 
+                               class="form-control" 
+                               style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 14px; transition: border-color 0.3s;"
+                               onfocus="this.style.borderColor='#D2691E'"
+                               onblur="this.style.borderColor='#ddd'" 
+                               required />
+                    </div>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <label asp-for="Description" style="display: block; margin-bottom: 8px; color: #555; font-weight: bold;">
+                            📄 İçerik
+                        </label>
+                        <textarea asp-for="Description" 
+                                  class="form-control" 
+                                  rows="10"
+                                  style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 14px; transition: border-color 0.3s;"
+                                  onfocus="this.style.borderColor='#D2691E'"
+                                  onblur="this.style.borderColor='#ddd'"
+                                  required></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <label asp-for="ImageUrl" style="display: block; margin-bottom: 8px; color: #555; font-weight: bold;">
+                            🖼️ Resim URL
+                        </label>
+                        <input asp-for="ImageUrl" 
+                               class="form-control" 
+                               style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 14px; transition: border-color 0.3s;"
+                               onfocus="this.style.borderColor='#D2691E'"
+                               onblur="this.style.borderColor='#ddd'" />
+                    </div>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <label asp-for="Tags" style="display: block; margin-bottom: 8px; color: #555; font-weight: bold;">
+                            🏷️ Etiketler
+                        </label>
+                        <input asp-for="Tags" 
+                               class="form-control" 
+                               style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 14px; transition: border-color 0.3s;"
+                               onfocus="this.style.borderColor='#D2691E'"
+                               onblur="this.style.borderColor='#ddd'" />
+                    </div>
+                    
+                    <div style="margin-top: 30px; text-align: center;">
+                        <button type="submit" 
+                                style="background: linear-gradient(135deg, #D2691E 0%, #C85A17 100%); color: white; padding: 14px 40px; border: none; border-radius: 25px; font-size: 16px; font-weight: bold; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 15px rgba(210, 105, 30, 0.3); margin-right: 10px;"
+                                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(210, 105, 30, 0.4)'"
+                                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(210, 105, 30, 0.3)'">
+                            ✓ Kaydet
+                        </button>
+                        <a href="/Blogs/Details/@Model.Id" 
+                           style="display: inline-block; background: #ccc; color: #333; padding: 14px 40px; border-radius: 25px; font-size: 16px; font-weight: bold; text-decoration: none; transition: background 0.2s;"
+                           onmouseover="this.style.background='#bbb'"
+                           onmouseout="this.style.background='#ccc'">
+                            ✕ İptal
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="clr"></div>
+    </div>
+</div>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#Description' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

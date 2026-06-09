@@ -1,0 +1,76 @@
+
+@model IEnumerable<Bloggy.Models.Blog>
+
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<div class="content">
+    <div class="content_resize">
+        <div class="mainbar" style="width: 100%; float: none; margin: 20px auto;">
+            <div class="article" style="padding: 30px;">
+                <h2 style="text-align: center; color: #D2691E; margin-bottom: 30px;">
+                    <span style="font-size: 40px;">⚙️</span><br />
+                    Admin Paneli - Blog Yönetimi
+                </h2>
+                
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; box-shadow: 0 2px 15px rgba(0,0,0,0.1);">
+                        <thead>
+                            <tr style="background: linear-gradient(135deg, #D2691E 0%, #C85A17 100%); color: white;">
+                                <th style="padding: 15px; text-align: left; border-bottom: 3px solid #C85A17;">ID</th>
+                                <th style="padding: 15px; text-align: left; border-bottom: 3px solid #C85A17;">Başlık</th>
+                                <th style="padding: 15px; text-align: left; border-bottom: 3px solid #C85A17;">Yazar</th>
+                                <th style="padding: 15px; text-align: left; border-bottom: 3px solid #C85A17;">Tarih</th>
+                                <th style="padding: 15px; text-align: center; border-bottom: 3px solid #C85A17;">Görüntülenme</th>
+                                <th style="padding: 15px; text-align: center; border-bottom: 3px solid #C85A17;">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr style="border-bottom: 1px solid #eee; transition: background-color 0.2s;"
+                                    onmouseover="this.style.backgroundColor='#f9f9f9'"
+                                    onmouseout="this.style.backgroundColor='white'">
+                                    <td style="padding: 12px;">@item.Id</td>
+                                    <td style="padding: 12px; font-weight: 500;">@item.Name</td>
+                                    <td style="padding: 12px; color: #666;">@(string.IsNullOrEmpty(item.AuthorName) ? "Anonim" : item.AuthorName)</td>
+                                    <td style="padding: 12px; color: #666;">@item.PublishDate.ToString("dd/MM/yyyy")</td>
+                                    <td style="padding: 12px; text-align: center;">
+                                        <span style="background: #e3f2fd; color: #1976d2; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: bold;">
+                                            👁️ @item.ViewCount
+                                        </span>
+                                    </td>
+                                    <td style="padding: 12px; text-align: center;">
+                                        <a href="/Blogs/Edit/@item.Id" 
+                                           style="background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%); color: white; padding: 6px 15px; border-radius: 15px; text-decoration: none; margin-right: 5px; display: inline-block; font-size: 13px; box-shadow: 0 2px 5px rgba(33, 150, 243, 0.3);"
+                                           onmouseover="this.style.transform='scale(1.05)'"
+                                           onmouseout="this.style.transform='scale(1)'">
+                                            ✏️ Düzenle
+                                        </a>
+                                        <a href="/Admin/Delete/@item.Id" 
+                                           onclick="return confirm('Bu blogu silmek istediğinize emin misiniz?');"
+                                           style="background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%); color: white; padding: 6px 15px; border-radius: 15px; text-decoration: none; display: inline-block; font-size: 13px; box-shadow: 0 2px 5px rgba(244, 67, 54, 0.3);"
+                                           onmouseover="this.style.transform='scale(1.05)'"
+                                           onmouseout="this.style.transform='scale(1)'">
+                                            🗑️ Sil
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                
+                @if (!Model.Any())
+                {
+                    <div style="text-align: center; padding: 50px; color: #999;">
+                        <p style="font-size: 48px;">📝</p>
+                        <p style="font-size: 18px;">Henüz blog yazısı yok.</p>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="clr"></div>
+    </div>
+</div>

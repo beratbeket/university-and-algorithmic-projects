@@ -1,0 +1,69 @@
+@model Blog
+
+<div class="mainbar">
+    <div class="article">
+        <h2><span>@Model.Name</span> </h2>
+        <div class="clr"></div>
+        <p>Posted by <a href="#">@(string.IsNullOrEmpty(Model.AuthorName) ? "Anonim" : Model.AuthorName)</a> <span>&nbsp;&bull;&nbsp;</span></p>
+        
+        @if (User.Identity.IsAuthenticated && (Model.AuthorName == User.Identity.Name || User.IsInRole("Admin")))
+        {
+            <p style="margin-bottom: 15px;">
+                <a href="/Blogs/Edit/@Model.Id" 
+                   style="background: linear-gradient(135deg, #D2691E 0%, #C85A17 100%); color: white; padding: 8px 20px; border-radius: 20px; text-decoration: none; display: inline-block; font-size: 14px; font-weight: bold; box-shadow: 0 2px 8px rgba(210, 105, 30, 0.3);"
+                   onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 12px rgba(210, 105, 30, 0.4)'"
+                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 8px rgba(210, 105, 30, 0.3)'">
+                    Düzenle
+                </a>
+            </p>
+        }
+        
+        <p>@Html.Raw(Model.Description)</p>
+        <p>Etiketler: <a href="#">@Model.Tags</a></p>
+        <p>
+            <a href="#"><strong>Comments (@Model.CommentCount)</strong></a> <span>&nbsp;&bull;&nbsp;</span>@Model.PublishDate.ToString("MMMM d\\th\\h, yyyy 'at' h:mm tt")<span>&nbsp;&bull;&nbsp;</span>
+                    @* <a href="#"><strong>Likes (@Model.LikeCount)</strong></a> <span>&nbsp;&bull;&nbsp;</span> *@
+                    <a href="#"><strong>Views (@Model.ViewCount)</strong></a>
+
+            </p>
+    </div>
+    <div class="article">
+        <h2><span>Yorumlar</span> </h2>
+        <div class="clr"></div>
+        @foreach( var item in ViewBag.Comments) 
+        {
+                 <div class="comment">
+            <a href="#"><img src="/images/userpic.gif" width="40" height="40" alt="" class="userpic" /></a>
+            <p>
+                <a href="#">@item.Name</a> Says:<br />
+                    @item.PublishDate.ToString("MMMM d\\th\\h, yyyy 'at' h:mm tt")
+            </p>
+            <p>@item.Message</p>
+        </div>
+        }
+   
+     
+    </div>
+    <div class="article">
+        <h2><span>Yorum</span> Yap</h2>
+        <div class="clr"></div>
+        <form action="/Blogs/CreateComment" method="post" id="leavereply">
+            <input id="blogid" name="blogId" type="hidden" value="@Model.Id"/>
+            <ol>
+                <li>
+                    <label for="name">İsim (zorunlu)</label>
+                    <input id="name" name="name" class="text" required />
+                </li>
+              
+                <li>
+                    <label for="message">Yorumunuz</label>
+                    <textarea id="message" name="message" rows="8" cols="50"></textarea>
+                </li>
+                <li>
+                    <input type="image" name="imageField" id="imageField" src="/images/submit.gif" class="send" />
+                    <div class="clr"></div>
+                </li>
+            </ol>
+        </form>
+    </div>
+</div>

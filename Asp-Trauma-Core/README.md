@@ -1,0 +1,3 @@
+Bir readme dosyasını bile hak etmeyen, her anından nefret ettiğim projeme hoşgeldiniz. Defalarca revize istenen, sunum esnasında controllerlardan ikisi silinerek tekrar yazmam istenilen ve farklı söylemlerle karşılaştığım önemli anılar bırakan güzel bir proje. Bana kattıkları dünya üzerinde her alanda kabul edileblecek kriterde sunum tekrar tekrar yapma becerisi, büyük bir sabırla pes etmeden çalışabilme ve website kelimesine karşı tetiklenme. Ha bir de CRUD işlemleri ve MVC yapısıyla sorumluluk ayrımını öğrenmiştim ama diğerleri yanında önemsiz. 
+
+İddialara göre bu projeyi inceleyen kişinin kulaklarında projeyi yapanın çığlıkları yankılanırmış...
